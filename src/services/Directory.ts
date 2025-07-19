@@ -8,8 +8,8 @@ export class Directory {
     constructor(@inject(TYPES.UserService) private userService: UserService) {
     }
 
-    public addUser(name: string) {
-        this.userService.addUser(new User("1", "Ziming"))
+    public addUser(name: string, email: string | undefined = undefined) {
+        this.userService.addUser(new User("1", name, email));
     }
 
     public getUsers(): User[] {

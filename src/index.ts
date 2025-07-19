@@ -5,7 +5,8 @@ import {TYPES} from "./ioc/Types";
 
 const directory = container.get<Directory>(TYPES.Directory);
 
-directory.addUser("ziming")
+directory.addUser("Ziming")
+directory.addUser("David", "example@gmail.com")
 console.log(directory.getUsers())
 
 
