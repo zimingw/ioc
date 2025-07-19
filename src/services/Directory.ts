@@ -5,7 +5,6 @@ import {TYPES} from "../ioc/Types";
 
 @injectable()
 export class Directory {
-    // @ts-ignore
     constructor(@inject(TYPES.UserService) private userService: UserService) {
     }
 
