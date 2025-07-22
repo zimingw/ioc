@@ -4,7 +4,7 @@ export function testAsyncLogging() {
     for (let i = 0; i < 2; i++) {
         asyncLocalStorage.run(
             {
-                id: i,
+                traceId: i,
                 startedAt: new Date(),
             },
             async () => {
