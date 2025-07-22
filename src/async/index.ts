@@ -1,15 +1,20 @@
-import {asyncLocalStorage, logWithContext} from "./storage";
+import {log, withMDCScope} from "./mdcLogger";
 
 export function testAsyncLogging() {
     for (let i = 0; i < 2; i++) {
-        asyncLocalStorage.run(
+        withMDCScope(
             {
                 traceId: i,
                 startedAt: new Date(),
             },
             async () => {
-                logWithContext("Hello World");
-                logWithContext("Hello Sydney");
+                log("Hello World");
+                withMDCScope(
+                    {
+                        logId: Date.now()
+                    }, async () =>
+                        log("Hello Sydney")
+                )
             }
         )
     }
