@@ -8,7 +8,7 @@ import {JiraClient} from "../interfaces/JiraClient";
 export class Directory {
     constructor(@inject(TYPES.UserService) private userService: UserService,
                 @inject("Factory<UserService>") private factory: () => UserService,
-                @inject("Factory<JiraClient>") private jiraClientFactory: (host:string) => JiraClient) {
+                @inject(TYPES.JiraClientFactory) private jiraClientFactory: (host:string) => JiraClient) {
     }
 
     public addUser(name: string, email: string | undefined = undefined) {

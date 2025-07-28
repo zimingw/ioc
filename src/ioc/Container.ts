@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {Container, Factory, ResolutionContext} from "inversify";
+import {Container, Factory} from "inversify";
 
 import {Directory} from "../services/Directory"
 import {UserService} from "../interfaces/UserService";
@@ -21,7 +21,7 @@ container.bind<Factory<UserService>>("Factory<UserService>").toFactory(
 )
 
 //bind in a factory with parameter
-container.bind<Factory<JiraClient>>("Factory<JiraClient>").toFactory(
+container.bind<Factory<JiraClient>>(TYPES.JiraClientFactory).toFactory(
     (context) => host => new JiraClientImpl(host)
 )
 
